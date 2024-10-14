@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Objects;
@@ -76,13 +77,25 @@ public class Human {
 
     @Override
     public String toString() {
-        return "id=" + id +
-                ", dob=" + dob +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", sex='" + sex + '\'' +
-                ", countChild=" + countChild +
-                ", dod=" + dod +
-                '}';
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM-dd-YYYY");
+        StringBuilder sb = new StringBuilder();
+        sb.append("id=" + id);
+        sb.append(", firstName='" + firstName + '\'');
+        sb.append(", lastName='" + lastName + '\'');
+        sb.append(", dob=" + formatter.format(dob));
+        sb.append(", sex='" + sex + '\'');
+        sb.append(", Child=" + countChild);
+        if (!(dod == dod)) sb.append(", dod=" + dod);
+        else sb.append(", status: life");
+        return sb.toString();
+
+//        return "id=" + id +
+//                ", dob=" + formatter.format(dob) +
+//                ", firstName='" + firstName + '\'' +
+//                ", lastName='" + lastName + '\'' +
+//                ", sex='" + sex + '\'' +
+//                ", Child=" + countChild +
+//                ", dod=" + dod +
+//                '}';
     }
 }
