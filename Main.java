@@ -1,9 +1,12 @@
+import com.sun.source.tree.Tree;
+
+import java.io.*;
 import java.util.Date;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         TreePerson familyTree = new TreePerson();
         Human daniil = new Human(new Date(84, 7, 28), "Daniil", "Ermoshin", "male");
         Human kirill = new Human(new Date(82, 2, 29), "Kirill", "Ermoshin", "male");
@@ -27,17 +30,16 @@ public class Main {
         yulia.setFather(daniil);
         sergey.setFather(pavel);
         evsey.setFather(alex);
-        familyTree.addHuman(daniil);
-        familyTree.addHuman(kirill);
-        familyTree.addHuman(pavel);
-        familyTree.addHuman(fedor);
-        familyTree.addHuman(tatyana);
-        familyTree.addHuman(alex);
-        familyTree.addHuman(dima);
-        familyTree.addHuman(yulia);
-        familyTree.addHuman(sergey);
-        familyTree.addHuman(evsey);
+        Human[] humans = {daniil, kirill, pavel, fedor, tatyana, alex, dima, yulia, sergey, evsey};
+        familyTree.addHuman(humans);
         System.out.println(familyTree.getChild(daniil));
+        System.out.println("This is original tree:");
+        System.out.println(familyTree);
+        FileOperations fo = new FileOperations();
+        fo.saveFile(familyTree, "src/treeFamily.txt");
+        TreePerson newTree = fo.loadTree("src/treeFamily.txt");
+        System.out.println("This is loaded tree:");
+        System.out.println(newTree);
 
 
     }
