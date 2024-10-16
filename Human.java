@@ -1,17 +1,16 @@
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Objects;
 
 public class Human implements Serializable {
     private Integer id = -1;
-    private final Date dob;
+    private final LocalDate dob;
     private final String firstName;
     private final String sex;
     private Integer countChild = 0;
 
-    public Human(Date dob, String firstName, String lastName, String sex) {
+    public Human(LocalDate dob, String firstName, String lastName, String sex) {
         this.dob = dob;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -19,10 +18,10 @@ public class Human implements Serializable {
     }
 
     private final String lastName;
-    private Date dod;
+    private LocalDate dod;
     private Human mother=null;
     private Human father=null;
-    private HashMap<Integer, Human> child = new HashMap<>();
+    private final HashMap<Integer, Human> child = new HashMap<>();
 
     public Human getFather() {
         return this.father;
@@ -81,15 +80,14 @@ public class Human implements Serializable {
 
     @Override
     public String toString() {
-        SimpleDateFormat formatter = new SimpleDateFormat("MMM-dd-YYYY");
         StringBuilder sb = new StringBuilder();
-        sb.append("id=" + id);
-        sb.append(", firstName='" + firstName + '\'');
-        sb.append(", lastName='" + lastName + '\'');
-        sb.append(", dob=" + formatter.format(dob));
-        sb.append(", sex='" + sex + '\'');
-        sb.append(", Child=" + countChild);
-        if (!(dod == dod)) sb.append(", dod=" + dod);
+        sb.append("id=").append(id);
+        sb.append(", firstName='").append(firstName).append('\'');
+        sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", ").append(dob.getDayOfMonth()).append(".").append(dob.getMonthValue()).append(".").append(dob.getYear());
+        sb.append(", sex='").append(sex).append('\'');
+        sb.append(", Child=").append(countChild);
+        if (dod != null) sb.append(", dod=").append(dod);
         else sb.append(", status: life");
         return sb.toString();
     }

@@ -1,23 +1,21 @@
-import com.sun.source.tree.Tree;
-
 import java.io.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) {
         TreePerson familyTree = new TreePerson();
-        Human daniil = new Human(new Date(84, 7, 28), "Daniil", "Ermoshin", "male");
-        Human kirill = new Human(new Date(82, 2, 29), "Kirill", "Ermoshin", "male");
-        Human pavel = new Human(new Date(79, 10, 15), "Pavel", "Ermoshin", "male");
-        Human alex = new Human(new Date(88, 0, 31), "Alex", "Ermoshin", "male");
-        Human fedor = new Human(new Date(46, 5, 3), "Fedor", "Ermoshin", "male");
-        Human tatyana = new Human(new Date(50, 6, 26), "Tatyana", "Ermoshina", "female");
-        Human dima = new Human(new Date(112, 11, 23), "Dmitry", "Ermoshin", "male");
-        Human yulia = new Human(new Date(118, 1, 7), "Yulia", "Ermoshina", "female");
-        Human sergey = new Human(new Date(108, 10, 17), "Sergey", "Ermoshin", "male");
-        Human evsey = new Human(new Date(120, 2, 14), "Evsey", "Ermoshin", "male");
+        Human daniil = new Human(LocalDate.of(1984, 8, 28), "Daniil", "Ermoshin", "male");
+        Human kirill = new Human(LocalDate.of(1982, 3, 29), "Kirill", "Ermoshin", "male");
+        Human pavel = new Human(LocalDate.of(1979, 11, 15), "Pavel", "Ermoshin", "male");
+        Human alex = new Human(LocalDate.of(1988, 1, 31), "Alex", "Ermoshin", "male");
+        Human fedor = new Human(LocalDate.of(1946, 6, 3), "Fedor", "Ermoshin", "male");
+        Human tatyana = new Human(LocalDate.of(1950, 7, 26), "Tatyana", "Ermoshina", "female");
+        Human dima = new Human(LocalDate.of(2012, 12, 23), "Dmitry", "Ermoshin", "male");
+        Human yulia = new Human(LocalDate.of(2018, 2, 7), "Yulia", "Ermoshina", "female");
+        Human sergey = new Human(LocalDate.of(2008, 11, 17), "Sergey", "Ermoshin", "male");
+        Human evsey = new Human(LocalDate.of(2020, 3, 14), "Evsey", "Ermoshin", "male");
         daniil.setFather(fedor);
         daniil.setMother(tatyana);
         kirill.setFather(fedor);
@@ -36,11 +34,20 @@ public class Main {
         System.out.println("This is original tree:");
         System.out.println(familyTree);
         FileOperations fo = new FileOperations();
-        fo.saveFile(familyTree, "src/treeFamily.txt");
-        TreePerson newTree = fo.loadTree("src/treeFamily.txt");
+        try {
+            fo.saveFile(familyTree, "src/treeFamily.txt");
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        TreePerson newTree = null;
+        try {
+            newTree = fo.loadTree("src/treeFamily.txt");
+        } catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
         System.out.println("This is loaded tree:");
-        System.out.println(newTree);
-
-
+        if (!(newTree == null)) {
+            System.out.println(newTree);
+        }
     }
 }

@@ -6,7 +6,6 @@ public class FileOperations implements FileWork{
                 FileOutputStream(path))) {
 
             objectOutputStream.writeObject(tree);
-//            objectOutputStream.close();
         }
     }
     public TreePerson loadTree(String path) throws IOException, ClassNotFoundException{

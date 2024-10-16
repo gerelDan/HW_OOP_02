@@ -3,8 +3,8 @@ import java.util.HashMap;
 
 public class TreePerson implements Serializable {
     private int ID = 1;
-    private int id;
-    private HashMap<Integer, Human> tree ;
+//    private int id;
+    private final HashMap<Integer, Human> tree ;
 
     public TreePerson() {
         this.tree = new HashMap<>();
