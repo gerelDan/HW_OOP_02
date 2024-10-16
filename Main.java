@@ -6,16 +6,16 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
         TreePerson familyTree = new TreePerson();
-        Human daniil = new Human(LocalDate.of(1984, 8, 28), "Daniil", "Ermoshin", "male");
-        Human kirill = new Human(LocalDate.of(1982, 3, 29), "Kirill", "Ermoshin", "male");
-        Human pavel = new Human(LocalDate.of(1979, 11, 15), "Pavel", "Ermoshin", "male");
-        Human alex = new Human(LocalDate.of(1988, 1, 31), "Alex", "Ermoshin", "male");
-        Human fedor = new Human(LocalDate.of(1946, 6, 3), "Fedor", "Ermoshin", "male");
-        Human tatyana = new Human(LocalDate.of(1950, 7, 26), "Tatyana", "Ermoshina", "female");
-        Human dima = new Human(LocalDate.of(2012, 12, 23), "Dmitry", "Ermoshin", "male");
-        Human yulia = new Human(LocalDate.of(2018, 2, 7), "Yulia", "Ermoshina", "female");
-        Human sergey = new Human(LocalDate.of(2008, 11, 17), "Sergey", "Ermoshin", "male");
-        Human evsey = new Human(LocalDate.of(2020, 3, 14), "Evsey", "Ermoshin", "male");
+        Human daniil = new Human(LocalDate.of(1984, 8, 28), "Daniil", "Ermoshin", Sex.MALE.getSex());
+        Human kirill = new Human(LocalDate.of(1982, 3, 29), "Kirill", "Ermoshin", Sex.MALE.getSex());
+        Human pavel = new Human(LocalDate.of(1979, 11, 15), "Pavel", "Ermoshin", Sex.MALE.getSex());
+        Human alex = new Human(LocalDate.of(1988, 1, 31), "Alex", "Ermoshin", Sex.MALE.getSex());
+        Human fedor = new Human(LocalDate.of(1946, 6, 3), "Fedor", "Ermoshin", Sex.MALE.getSex());
+        Human tatyana = new Human(LocalDate.of(1950, 7, 26), "Tatyana", "Ermoshina", Sex.FEMALE.getSex());
+        Human dima = new Human(LocalDate.of(2012, 12, 23), "Dmitry", "Ermoshin", Sex.MALE.getSex());
+        Human yulia = new Human(LocalDate.of(2018, 2, 7), "Yulia", "Ermoshina", Sex.FEMALE.getSex());
+        Human sergey = new Human(LocalDate.of(2008, 11, 17), "Sergey", "Ermoshin", Sex.MALE.getSex());
+        Human evsey = new Human(LocalDate.of(2020, 3, 14), "Evsey", "Ermoshin", Sex.MALE.getSex());
         daniil.setFather(fedor);
         daniil.setMother(tatyana);
         kirill.setFather(fedor);
