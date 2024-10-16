@@ -29,7 +29,7 @@ public class TreePerson implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (Human human: tree.values()){
-            sb.append(human + "\n");
+            sb.append(human).append(";\n");
         }
         return sb.toString();
     }
