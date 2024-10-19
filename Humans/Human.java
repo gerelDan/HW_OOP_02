@@ -3,6 +3,7 @@ package Humans;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -24,7 +25,7 @@ public class Human implements Serializable {
     private LocalDate dod;
     private Human mother=null;
     private Human father=null;
-    private final HashMap<Integer, Human> child = new HashMap<>();
+    private final ArrayList<Human> child = new ArrayList<>();
 
     public Human getFather() {
         return this.father;
@@ -50,21 +51,22 @@ public class Human implements Serializable {
     }
     public void setMother(Human mother){
         this.mother = mother;
-        if (!mother.getChild().containsValue(this)) mother.addChildren(this);
+        if (!mother.getChild().contains(this)) mother.addChildren(this);
     }
     public void setFather(Human father){
         this.father = father;
-        if (!father.getChild().containsValue(this)) father.addChildren(this);
+        if (!father.getChild().contains(this)) father.addChildren(this);
     }
     public void addChildren(Human children){
-        child.put(++countChild, children);
+        countChild++;
+        child.add(children);
         if(this.getSex().equals("male") & children.getFather() == null) children.setFather(this);
         else if(this.getSex().equals("female") & children.getMother() == null) children.setMother(this);
     }
     public Integer getCountChild(){
         return countChild;
     }
-    public HashMap<Integer, Human> getChild(){
+    public ArrayList<Human> getChild(){
         return this.child;
     }
     public LocalDate getDob(){
@@ -77,10 +79,6 @@ public class Human implements Serializable {
     public String getName(){
         return this.getFirstName() + " " + this.getLastName();
     }
-//    public Integer getAge(){
-//        LocalDate.from(this.dob)
-//        return LocalDate.now()-this.getDob();
-//    }
 
     @Override
     public boolean equals(Object o) {

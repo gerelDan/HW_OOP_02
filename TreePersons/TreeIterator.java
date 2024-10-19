@@ -1,19 +1,19 @@
 package TreePersons;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class TreeIterator<Human> implements Iterator<Human> {
-    private HashMap<Integer, Human> tree;
-    Integer index = 1;
-    public TreeIterator(HashMap<Integer, Human> tree){
+    private final ArrayList<Human> tree;
+    Integer index = 0;
+    public TreeIterator(ArrayList<Human> tree){
         this.tree = tree;
     }
 
 
     @Override
     public boolean hasNext() {
-        return index <= tree.size();
+        return index < tree.size();
     }
 
     @Override
