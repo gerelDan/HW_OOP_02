@@ -1,3 +1,5 @@
+package Humans;
+
 public enum Sex {
     MALE("мужской"), FEMALE("женский");
 

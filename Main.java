@@ -1,5 +1,11 @@
+import Humans.Human;
+import Humans.Sex;
+import Service.FileOperations;
+import TreePersons.TreePerson;
+
 import java.io.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -49,5 +55,11 @@ public class Main {
         if (!(newTree == null)) {
             System.out.println(newTree);
         }
+        System.out.println("sdfasdf");
+        for (Human human: newTree){
+            System.out.println(human);
+        }
+        Period period = daniil.getDob().until(LocalDate.now());
+        System.out.println(period.getYears());
     }
 }

@@ -1,5 +1,8 @@
+package Humans;
+
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -64,6 +67,20 @@ public class Human implements Serializable {
     public HashMap<Integer, Human> getChild(){
         return this.child;
     }
+    public LocalDate getDob(){
+        return this.dob;
+    }
+    public Integer getAge(){
+       Period age = this.getDob().until(LocalDate.now());
+       return age.getYears();
+    }
+    public String getName(){
+        return this.getFirstName() + " " + this.getLastName();
+    }
+//    public Integer getAge(){
+//        LocalDate.from(this.dob)
+//        return LocalDate.now()-this.getDob();
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -91,4 +108,9 @@ public class Human implements Serializable {
         else sb.append(", status: life");
         return sb.toString();
     }
+
+//    @Override
+//    public int compareTo(Human o) {
+//        return 0;
+//    }
 }

@@ -1,7 +1,12 @@
+package TreePersons;
+
+import Humans.Human;
+
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
 
-public class TreePerson implements Serializable {
+public class TreePerson implements Serializable, Iterable<Human> {
     private int ID = 1;
 //    private int id;
     private final HashMap<Integer, Human> tree ;
@@ -38,5 +43,10 @@ public class TreePerson implements Serializable {
             if (name.equals(human.getFirstName())) return human;
         }
         return null;
+    }
+
+    @Override
+    public Iterator<Human> iterator() {
+        return new TreeIterator<>(this.tree);
     }
 }

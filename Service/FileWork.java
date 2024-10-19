@@ -1,5 +1,6 @@
-import com.sun.source.tree.Tree;
+package Service;
 
+import TreePersons.TreePerson;
 import java.io.IOException;
 
 public interface FileWork {
