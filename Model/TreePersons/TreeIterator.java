@@ -1,4 +1,4 @@
-package TreePersons;
+package Model.TreePersons;
 
 import java.util.ArrayList;
 import java.util.Iterator;

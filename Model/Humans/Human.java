@@ -1,10 +1,9 @@
-package Humans;
+package Model.Humans;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Objects;
 
 public class Human implements Serializable {
@@ -97,9 +96,8 @@ public class Human implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("id=").append(id);
-        sb.append(", firstName='").append(firstName).append('\'');
-        sb.append(", lastName='").append(lastName).append('\'');
-        sb.append(", ").append(dob.getDayOfMonth()).append(".").append(dob.getMonthValue()).append(".").append(dob.getYear());
+        sb.append(", Name='").append(this.getName()).append('\'');
+        sb.append(", Age='").append(this.getAge()).append("'");
         sb.append(", sex='").append(sex).append('\'');
         sb.append(", Child=").append(countChild);
         if (dod != null) sb.append(", dod=").append(dod);

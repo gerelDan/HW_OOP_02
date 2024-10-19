@@ -1,16 +1,15 @@
-package TreePersons;
+package Model.TreePersons;
 
-import Humans.ComparatorHumanByAge;
-import Humans.ComparatorHumanById;
-import Humans.ComparatorHumanByName;
-import Humans.Human;
+import Model.Humans.ComparatorHumanByAge;
+import Model.Humans.ComparatorHumanById;
+import Model.Humans.ComparatorHumanByName;
+import Model.Humans.Human;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class TreePerson implements Serializable, Iterable<Human> {
-    private int ID = 1;
     private final ArrayList<Human> tree;
 
     public TreePerson(){
@@ -19,8 +18,6 @@ public class TreePerson implements Serializable, Iterable<Human> {
 
     public void addHuman(Human human){
         if (!(human.getId()>0) & !this.tree.contains(human)) {
-//            human.setId(ID);
-            human.setId(ID++);
             this.tree.add(human);
         }
     }

@@ -1,6 +1,6 @@
 package Service;
 
-import TreePersons.TreePerson;
+import Model.TreePersons.TreePerson;
 import java.io.IOException;
 
 public interface FileWork {

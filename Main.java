@@ -1,7 +1,8 @@
-import Humans.Human;
-import Humans.Sex;
+import Model.Humans.Human;
+import Model.Humans.Sex;
 import Service.FileOperations;
-import TreePersons.TreePerson;
+import Model.TreePersons.TreePerson;
+import Service.Service;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -10,6 +11,19 @@ import java.time.LocalDate;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+
+//        Service service = new Service();
+//        service.addPerson(LocalDate.of(1984, 8, 28), "Daniil", "Ermoshin", Sex.MALE.getSex());
+//        service.addPerson(LocalDate.of(1982, 3, 29), "Kirill", "Ermoshin", Sex.MALE.getSex());
+//        service.addPerson(LocalDate.of(1979, 11, 15), "Pavel", "Ermoshin", Sex.MALE.getSex());
+//        service.addPerson(LocalDate.of(1988, 1, 31), "Alex", "Ermoshin", Sex.MALE.getSex());
+//        service.addPerson(LocalDate.of(1946, 6, 3), "Fedor", "Ermoshin", Sex.MALE.getSex());
+//        service.addPerson(LocalDate.of(1950, 7, 26), "Tatyana", "Ermoshina", Sex.FEMALE.getSex());
+//        service.addPerson(LocalDate.of(2012, 12, 23), "Dmitry", "Ermoshin", Sex.MALE.getSex());
+//        service.addPerson(LocalDate.of(2018, 2, 7), "Yulia", "Ermoshina", Sex.FEMALE.getSex());
+//        service.addPerson(LocalDate.of(2008, 11, 17), "Sergey", "Ermoshin", Sex.MALE.getSex());
+//        service.addPerson(LocalDate.of(2020, 3, 14), "Evsey", "Ermoshin", Sex.MALE.getSex());
+//        service.getTree().
         TreePerson familyTree = new TreePerson();
         Human daniil = new Human(LocalDate.of(1984, 8, 28), "Daniil", "Ermoshin", Sex.MALE.getSex());
         Human kirill = new Human(LocalDate.of(1982, 3, 29), "Kirill", "Ermoshin", Sex.MALE.getSex());
@@ -53,18 +67,16 @@ public class Main {
         System.out.println("This is loaded tree:");
         if (!(newTree == null)) {
             System.out.println(newTree);
+            newTree.sortByName();
+            System.out.println(newTree);
+
+            newTree.sortByAge();
+            System.out.println(newTree);
+
+            newTree.SortById();
+            System.out.println(newTree);
+
         }
-//        System.out.println("sdfasdf");
-//        for (Human human: newTree){
-//            System.out.println(human);
-//        }
-        newTree.sortByName();
-        System.out.println(newTree);
 
-        newTree.sortByAge();
-        System.out.println(newTree);
-
-        newTree.SortById();
-        System.out.println(newTree);
     }
 }
