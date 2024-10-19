@@ -6,10 +6,10 @@ import java.util.Iterator;
 public class TreeIterator<Human> implements Iterator<Human> {
     private final ArrayList<Human> tree;
     Integer index = 0;
+
     public TreeIterator(ArrayList<Human> tree){
         this.tree = tree;
     }
-
 
     @Override
     public boolean hasNext() {

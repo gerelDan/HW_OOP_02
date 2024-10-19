@@ -54,9 +54,17 @@ public class Main {
         if (!(newTree == null)) {
             System.out.println(newTree);
         }
-        System.out.println("sdfasdf");
-        for (Human human: newTree){
-            System.out.println(human);
-        }
+//        System.out.println("sdfasdf");
+//        for (Human human: newTree){
+//            System.out.println(human);
+//        }
+        newTree.sortByName();
+        System.out.println(newTree);
+
+        newTree.sortByAge();
+        System.out.println(newTree);
+
+        newTree.SortById();
+        System.out.println(newTree);
     }
 }
